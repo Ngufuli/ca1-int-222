@@ -12,7 +12,7 @@ const emitter = new MyEmitter();
 //Events listener to remove all events
 emitter.on('removeData', ()=>{
     emitter.removeAllListeners();
-    console.log('Events removed!');
+    console.log('All Events have been removed!');
     exit();
 })
 
