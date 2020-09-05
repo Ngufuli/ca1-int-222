@@ -15,5 +15,11 @@ fs.open(fileName, (err, data)=>{
         if(stats.size === 0){
             console.log('The file is empty.')
         }
+        fs.appendFile(fileName, content, (err, data)=>{
+            if (err) throw err;
+        })
+        fs.readFile(fileName, (err, data)=>{
+            console.log(data.toString())
+        })
     })
 })
