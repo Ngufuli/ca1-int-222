@@ -3,6 +3,7 @@
 // appended into file “test1.txt” and printed on the console. 
 
 const fs = require('fs');
+const { exit } = require('process');
 
 var fileName = 'test.txt';
 var content = "Hello world, welcome to NodeJS";
@@ -14,10 +15,12 @@ fs.open(fileName, (err, data)=>{
     fs.stat(fileName,(err, stats)=>{
         if(stats.size === 0){
             console.log('The file is empty.')
+            exit()
         }
         fs.appendFile(fileName, content, (err, data)=>{
             if (err) throw err;
         })
+        console.log('The file is not empty\nAnd below is the text from the file')
         fs.readFile(fileName, (err, data)=>{
             console.log(data.toString())
         })
